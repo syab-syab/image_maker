@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <style>
+    #test2 {
+      border: 0.1rem black solid;
+    }
+  </style>
+  <title>予定＆イベント画像ジェネレーター</title>
+</head>
+<body>
+  <div>
+    <h1>画像生成テスト</h1>
+  </div>
+  <!-- 画像の上に文字を重ねるテスト -->
+  <canvas id="test" width="460" height="460"></canvas>
+  <!-- canvasに線を引いて文字を重ねるテスト -->
+  <canvas id="test2" width="460" height="460"></canvas>
+  <!-- 画像変換・保存テスト -->
+  <div>
+    <img id="canvasImage">
+    <a download="test.png" id="download-test">ダウンロード</a>
+  </div>
+</body>
+<script>
+
+  // 画像の上に文字を載せるテスト
+  // canvas準備
+  const test = document.getElementById("test").getContext("2d");
+
+  // 画像読み込み
+  const image = new Image();
+  // 画像のURLを指定
+  image.src = "test.jpg";
+  // ctx.drawImage(image, 0, 0);
+  image.addEventListener('load', function() {
+    test.drawImage(image, 0, 0)
+    // 画像の上に文字を置く
+    test.font = "48px serif";
+    test.strokeText("Hello world", 10, 50);
+    test.strokeText("Good bye world", 10, 90);
+  })
+
+
+  // canvasにラインを引いて表にして文字を重ねるテスト
+  var cvs = document.getElementById("test2")
+  var test2 = cvs.getContext("2d");
+  // ラインの
+  var test2Width = cvs.width;
+  var test2Height = cvs.height;
+
+  
+  // ラインのスタイル
+  test2.strokeStyle = "red";
+  test2.lineWidth = 1;
+
+  // ラインを引く
+  test2.beginPath();
+  test2.moveTo(0, test2Width / 2);
+  test2.lineTo(test2Width, test2Width / 2);
+  test2.closePath();
+  test2.stroke();
+
+  // 文字を載せる
+  test2.font = "3px";
+  test2.strokeText("Hello world", 10, 50);
+  test2.strokeText("Good bye world", 10, 90);
+
+  // 文字の大きさ、太さ、色がラインのスタイルに引っ張られてしまう
+
+
+  // 画像変換・保存テスト
+  var png = cvs.toDataURL();
+  document.getElementById('canvasImage').src = png;
+
+  // download属性の付いたaタグにhrefを追加して生成したcanvas画像をダウンロードさせる
+  var downloadTest = document.getElementById('download-test');
+  downloadTest.setAttribute('href', png);
+  // よそのサイトの画像urlを指定しても画像が表示されるだけでダウンロードできなかった
+  // foxとクロームだとダウンロードファイルとアクセスしたドメインが一致していない場合には、不可能っぽい
+</script>
+</html>
