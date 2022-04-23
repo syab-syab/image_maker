@@ -10,52 +10,85 @@
     #test2 {
       border: 0.1rem black solid;
     }
+
+    /* 画像ダウンロードボタンと画像元生成スペースに付ける */
+    .non-display {
+      display: none;
+    }
   </style>
   <title>予定＆イベント画像ジェネレーター</title>
 </head>
 <body>
   <div>
     <h1>画像生成テスト</h1>
-  </div>
-  <!-- 画像の上に文字を重ねるテスト -->
-  <!-- <canvas id="test" width="460" height="460"></canvas> -->
-  <!-- canvasに線を引いて文字を重ねるテスト -->
-  <!-- <canvas id="test2" width="460" height="460"></canvas> -->
-  <!-- 画像変換・保存テスト -->
-  <!-- <div>
-    <img id="canvasImage">
-    <a download="test.png" id="download-test">ダウンロード</a>
-  </div> -->
-  <!-- スクショテスト -->
-  <div id="capture">
     <div class="form-group">
-      <label for="title">タイトル</label>
+      <label for="title">イベント名</label>
       <input type="text" id="title" class="form-control">
     </div>
+    <div class="form-group">
+      <label for="place">場所(集合場所)</label>
+      <input type="text" id="place"  class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="date">日</label>
+      <input type="date" id="date" class="form-control">
+      <label for="time">時間</label>
+      <input type="time" id="time" class="form-control">
+    </div>
+
     <div class="form-group">
       <label for="content">備考</label>
       <textarea class="form-control" id="content"></textarea>
     </div>
   </div>
-  <button id="make-image">スクショ生成</button>
+  <!-- スクショテスト -->
+  <button id="image-origin" class="btn btn-danger">生成テスト</button>
+  <div id="capture" class="non-display jumbotron" style="width:30rem;">
+    <h1 class="display-4" id="origin-title"></h1>
+    <p class="lead">場所(または集合場所): <span id="origin-place"></span></p>
+    <p>日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
+    <p>備考: <span id="origin-content"></span></p>
+  </div>
+  <!-- スクショテスト end -->
+  <button class="btn btn-primary" id="make-image">スクショ生成</button>
   <hr>
   <img src="" alt="" id="created=image">
-  <a href="" id="image-download" download="screenshot.jpg">スクショテスト</a>
+  <!-- pngの方が良いかも -->
+  <a class="btn btn-success" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
 
-  <script src="main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
   <script>
     var makeImage = document.getElementById("make-image");
+
+    // テスト
+    var originImg = document.getElementById("image-origin");
+    var title = document.getElementById("title");
+    var place = document.getElementById("place");
+    var date = document.getElementById("date");
+    var time = document.getElementById("time");
+    var content = document.getElementById("content");
+    var capture = document.getElementById("capture");
+
+    function createImage() {
+      capture.classList.remove("non-display");
+      document.getElementById('origin-title').textContent = title.value;
+      document.getElementById('origin-place').textContent = place.value;
+      document.getElementById('origin-date').textContent = date.value;
+      document.getElementById('origin-time').textContent = time.value;
+      document.getElementById('origin-content').textContent = content.value;
+    }
+
+    originImg.addEventListener("click", createImage);
       
     // スクショ生成する関数
     function createScreenshot() {
       // フォームに入力したら画像を表示
       html2canvas(document.getElementById("capture"),{
         onrendered: function(canvas){
-          //imgのsrcのに、生成した画像urlを入れて表示。
+          //imgのsrcに、生成した画像urlを入れて表示。
           var imgData = canvas.toDataURL();
           document.getElementById("created=image").src = imgData;
           // aタグのhrefに生成した画像を入れてダウンロードできるようにする
