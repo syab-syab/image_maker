@@ -19,43 +19,51 @@
   <title>予定＆イベント画像ジェネレーター</title>
 </head>
 <body>
-  <div>
-    <h1>画像生成テスト</h1>
-    <div class="form-group">
-      <label for="title">イベント名</label>
-      <input type="text" id="title" class="form-control">
+  <header class="text-center bg-primary text-white py-1">
+    <!-- スマホで開いたら文字サイズを小さくしたい -->
+    <h1>予定＆イベント画像ジェネレーター</h1>
+  </header>
+  <div class="container-fluid py-2">
+    <div>
+      <div class="form-group">
+        <label for="title">イベント名</label>
+        <input type="text" id="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="place">場所(集合場所)</label>
+        <input type="text" id="place"  class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="date">日</label>
+        <input type="date" id="date" class="form-control">
+        <label for="time">時間</label>
+        <input type="time" id="time" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="content">備考</label>
+        <textarea class="form-control" id="content"></textarea>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="place">場所(集合場所)</label>
-      <input type="text" id="place"  class="form-control">
+    <!-- スクショ -->
+    <!-- 画像のデザインを改良する -->
+    <button id="image-origin" class="btn btn-danger">サンプル生成</button>
+    <div id="capture" class="non-display jumbotron" style="width:30rem;">
+      <h1 class="display-4" id="origin-title"></h1>
+      <p class="lead">場所(または集合場所): <span id="origin-place"></span></p>
+      <p>日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
+      <p>備考: <span id="origin-content"></span></p>
     </div>
-    <div class="form-group">
-      <label for="date">日</label>
-      <input type="date" id="date" class="form-control">
-      <label for="time">時間</label>
-      <input type="time" id="time" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="content">備考</label>
-      <textarea class="form-control" id="content"></textarea>
-    </div>
+    <!-- スクショ end -->
+    <hr>
+    <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
+    <button class="btn btn-primary" id="make-image">スクショ生成</button>
+    <hr>
+    <img src="" alt="" id="created=image">
+    <a class="btn btn-success" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
   </div>
-  <!-- スクショテスト -->
-  <button id="image-origin" class="btn btn-danger">生成テスト</button>
-  <div id="capture" class="non-display jumbotron" style="width:30rem;">
-    <h1 class="display-4" id="origin-title"></h1>
-    <p class="lead">場所(または集合場所): <span id="origin-place"></span></p>
-    <p>日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
-    <p>備考: <span id="origin-content"></span></p>
-  </div>
-  <!-- スクショテスト end -->
-  <button class="btn btn-primary" id="make-image">スクショ生成</button>
-  <hr>
-  <img src="" alt="" id="created=image">
-  <!-- pngの方が良いかも -->
-  <a class="btn btn-success" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
 
+  <!-- twitterやLINEに共有できるボタンを作成する -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
