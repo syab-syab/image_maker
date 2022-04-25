@@ -7,9 +7,9 @@
   <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
-    #test2 {
+    /* #test2 {
       border: 0.1rem black solid;
-    }
+    } */
 
     /* 画像ダウンロードボタンと画像元生成スペースに付ける */
     .non-display {
@@ -47,20 +47,21 @@
     </div>
     <!-- スクショ -->
     <!-- 画像のデザインを改良する -->
-    <button id="image-origin" class="btn btn-danger">サンプル生成</button>
-    <div id="capture" class="non-display jumbotron" style="width:30rem;">
-      <h1 class="display-4" id="origin-title"></h1>
-      <p class="lead">場所(または集合場所): <span id="origin-place"></span></p>
-      <p>日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
-      <p>備考: <span id="origin-content"></span></p>
+    <button id="create-preview" class="btn btn-danger">プレビュー生成</button>
+    <div id="capture" class="non-display bg-white border border-dark px-2 py-2 mt-2">
+      <p class="border-bottom border-dark h5" id="origin-title"></p>
+      <p class="border-bottom border-dark h5">場所(または集合場所): <span id="origin-place"></span></p>
+      <p class="border-bottom border-dark h5">日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
+      <p class="h5">備考: <span id="origin-content"></span></p>
     </div>
     <!-- スクショ end -->
     <hr>
     <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
-    <button class="btn btn-primary" id="make-image">スクショ生成</button>
+    <button class="btn btn-primary" id="make-image">画像生成</button>
     <hr>
     <img src="" alt="" id="created=image">
-    <a class="btn btn-success" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
+    <hr>
+    <a class="btn btn-success mt-2" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
   </div>
 
   <!-- twitterやLINEに共有できるボタンを作成する -->
@@ -72,7 +73,7 @@
     var makeImage = document.getElementById("make-image");
 
     // テスト
-    var originImg = document.getElementById("image-origin");
+    var createPreview = document.getElementById("create-preview");
     var title = document.getElementById("title");
     var place = document.getElementById("place");
     var date = document.getElementById("date");
@@ -89,7 +90,7 @@
       document.getElementById('origin-content').textContent = content.value;
     }
 
-    originImg.addEventListener("click", createImage);
+    createPreview.addEventListener("click", createImage);
       
     // スクショ生成する関数
     function createScreenshot() {
