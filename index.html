@@ -8,46 +8,45 @@
   <title>予定＆イベント画像ジェネレーター</title>
 </head>
 <body>
-  <!-- bootstrapを使わずにやってみる(スクショが上手く機能しないため) -->
-  <header class="">
+  <header>
     <!-- スマホで開いたら文字サイズを小さくしたい -->
-    <h1>予定＆イベント画像ジェネレーター</h1>
+    <h1 class="site-title">予定＆イベント画像ジェネレーター</h1>
   </header>
-  <div class="container">
-    <div class="input-form">
+
+  <!-- 入力部分 -->
+  <section class="form-section">
+    <form class="forms">
+      <!-- 背景色・文字色・集合場所か開催場所かの選択もいずれ追加すること -->
       <label for="title">イベント名</label>
+      <input type="text" id="title" name="event" placeholder="イベント名">
+      <!-- 各部にある brタグ は消しても良いかも -->
       <br>
-      <input type="text" id="title">
-    </div>
-    <div class="input-form">
       <label for="place">場所(集合場所)</label>
+      <input type="text" id="place" placeholder="場所">
       <br>
-      <input type="text" id="place">
-    </div>
-    <div class="input-form">
       <label for="date">日</label>
-      <br>
       <input type="date" id="date">
-    </div>
-    <div class="input-form">
+      <br>
       <label for="time">時間</label>
-      <br>
       <input type="time" id="time">
-    </div>
-    <div  class="text-form">
-      <label for="content">備考</label>
       <br>
+      <label for="content">備考</label>
       <textarea class="" id="content"></textarea>
-    </div>
-    <!-- スクショ -->
-    <!-- 画像のデザインを改良する -->
+    </form>
     <button id="create-preview" class="">プレビュー生成</button>
-    <div id="capture" class="non-display ">
-      <p class="" id="origin-title"></p>
-      <p class="">場所(または集合場所): <span id="origin-place"></span></p>
-      <p class="">日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
-      <p class="">備考: <span id="origin-content"></span></p>
-    </div>
+  </section>
+  
+  <!-- プレビュー表示部分 -->
+  <!-- <div class="preview-section"> -->
+  <section id="capture" class="preview-section non-display">
+    <p class="" id="origin-title"></p>
+    <p class="">場所(または集合場所): <span id="origin-place"></span></p>
+    <p class="">日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
+    <p class="">備考: <span id="origin-content"></span></p>
+  </section>
+  <!-- </div> -->
+
+  <section class="make-image-section">
     <!-- スクショ end -->
     <hr>
     <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
@@ -56,7 +55,9 @@
     <img src="" alt="" id="created-image">
     <hr>
     <a class="" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
-  </div>
+  </section>
+    
+    
 
   <!-- twitterやLINEに共有できるボタンを作成する -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>

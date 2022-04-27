@@ -1,69 +1,140 @@
 @charset "utf-8";
-/* font-familyは後回し */
+
+/* 基幹 */
 
 html {
   font-size: 62.5%;
   /* 便宜上widthは100vhにしておく */
-  width: 100vh;
+  /* width: 100vh; */
 }
 
-header {
-  width: auto;
-  font-size: 2rem;
-  color: white;
-  background: rgb(28, 110, 224);
+body {
+  /* 教本 */
+  text-align: center;
+  font-size: 1.4rem;
+  background-color: antiquewhite;
 }
 
-header > h1 {
-  margin: 0%;
-  
-}
-
-/* 暫定container */
-.container {
-  width: auto;
-  font-size: 1.6rem;
-  padding: 0.8rem 1.5rem;
-}
-
-.input-form {
-  /* width: 100rem; */
-}
-
-.input-form > input{
-  /* width: 100rem;
-  height: 3rem; */
-  font-size: 3rem;
-  margin: 2rem;
-}
-
-.text-form > textarea {
-  font-size: 3rem;
-  margin: 2rem;
+:root {
+  --element-width: 50%;
+  --element-margin: 50px auto 0;
 }
 
 /* 画像ダウンロードボタンと画像元生成スペースに付ける */
 .non-display {
-  /* display: none; */
 }
 
-#capture {
-  /* 便宜上この大きさだから後で変更する */
-  width: 700px;
-  overflow-wrap: break-word;
-  font-size: 2rem;
-  padding: 0.3rem;
+/* ヘッダー部分 */
+
+header {
+  color: white;
+  background: rgb(28, 110, 224);
+  /* paddingは適当なので後で変更 */
+  padding: 2rem 2rem;
 }
+
+.site-title {
+  /* 教本 */
+  /* margin: 50px 0 40px; */
+  margin: 0;
+  font-size: 4rem;
+}
+
+
+/* 入力部分 */
+
+.form-section {
+  /* 背景色は後で変えても良い */
+  /* background-color: #87a7e6; */
+}
+
+.forms {
+  text-align: left;
+  /* 教本 */
+  /* キャプチャースペースと同じ幅 */
+  width: var(--element-width);
+  margin: var(--element-margin);
+}
+
+.forms input, .forms textarea {
+  display: block;
+  width: 100%;
+  /* ここから教本 */
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid rgba(60, 59, 59, 0.4);
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  outline: none;
+  resize: none;
+}
+
+.forms input:focus, .forms textarea:focus {
+  /* 教本 */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+}
+
+.forms textarea {
+  height: 15rem;
+}
+
+.forms label {
+  font-size: 2rem;
+  /* text-align: right; */
+}
+
+/* ボタンのスタイル */
+#create-preview, #make-image, #image-download {
+  /* 教本 */
+  display: block;
+  width: 200px;
+  margin: 40px auto 0;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  /* background-color: transparent; */
+  cursor: pointer;
+}
+
+#create-preview:hover {
+  /* 教本 */
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+
+/* キャプチャー(プレビュー)部分 */
+
+.preview-section {
+  overflow-wrap: break-word;
+  padding: 0.3rem;
+  border: black 1px solid;
+  /* 教本 */
+  padding: 80px 30px;
+  color: black;
+  text-align: left;
+  font-size: 2rem;
+  /* 入力スペースと同じ幅 */
+  width: var(--element-width);
+  /* width: 50%; */
+  /* width: 700px; */
+  margin: var(--element-margin);
+  /* margin: 50px auto 0; */
+}
+
+/* #capture p {
+  overflow-wrap: break-word;
+} */
 
 /* buttonのスタイルは適当だから後で変更 */
 button {
-  appearance: none;
+  /* appearance: none;
   border: 0;
   border-radius: 5px;
   background: #4676D7;
   color: #fff;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 16px; */
 }
 
 #created-image {
@@ -73,7 +144,6 @@ button {
 /* ↓のaタグも適当だからあとで変更 */
 #image-download {
   text-decoration: none;
-  font-size: 2rem;
-  border: rgb(19, 214, 188) solid 1rem;
+  /* border: rgb(19, 214, 188) solid 1rem; */
   cursor: pointer;
 }
