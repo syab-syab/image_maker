@@ -4,11 +4,14 @@
 
 html {
   font-size: 62.5%;
-  /* 便宜上widthは100vhにしておく */
-  /* width: 100vh; */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
+  font-family: 'Courier New', Courier, monospace;
   /* 教本 */
   text-align: center;
   font-size: 1.4rem;
@@ -18,6 +21,8 @@ body {
 :root {
   --element-width: 50%;
   --element-margin: 50px auto 0;
+
+  --responsive-width: 80%;
 }
 
 /* 画像ダウンロードボタンと画像元生成スペースに付ける */
@@ -57,10 +62,12 @@ header {
 }
 
 .forms input, .forms textarea {
+  /* box-sizing: border-box; */
+
   display: block;
   width: 100%;
   /* ここから教本 */
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   padding: 15px;
   border: 1px solid rgba(60, 59, 59, 0.4);
   border-radius: 0;
@@ -83,6 +90,40 @@ header {
   /* text-align: right; */
 }
 
+
+/* キャプチャー(プレビュー)部分 */
+
+.preview-section {
+  /* 背景色を指定しないと透過する */
+  background: white;
+  overflow-wrap: break-word;
+  padding: 0.3rem;
+  border: black 1px solid;
+  /* 教本 */
+  padding: 80px 30px;
+  color: black;
+  text-align: left;
+  font-size: 2rem;
+  /* 入力スペースと同じ幅 */
+  width: var(--element-width);
+  /* width: 50%; */
+  /* width: 700px; */
+  margin: var(--element-margin);
+  /* margin: 50px auto 0; */
+}
+
+
+#created-image {
+  box-shadow: 0.2rem 0.2rem 0.4rem;
+}
+
+/* ↓のaタグも適当だからあとで変更 */
+#image-download {
+  text-decoration: none;
+  /* border: rgb(19, 214, 188) solid 1rem; */
+  cursor: pointer;
+}
+
 /* ボタンのスタイル */
 #create-preview, #make-image, #image-download {
   /* 教本 */
@@ -102,48 +143,106 @@ header {
 }
 
 
+/* スマホ・タブレット向けのレスポンシブのスタイル */
 
-/* キャプチャー(プレビュー)部分 */
+@media (max-width: 768px) {
 
-.preview-section {
-  overflow-wrap: break-word;
-  padding: 0.3rem;
-  border: black 1px solid;
-  /* 教本 */
-  padding: 80px 30px;
-  color: black;
-  text-align: left;
-  font-size: 2rem;
-  /* 入力スペースと同じ幅 */
-  width: var(--element-width);
-  /* width: 50%; */
-  /* width: 700px; */
-  margin: var(--element-margin);
-  /* margin: 50px auto 0; */
-}
+  /* 全体 */
+  body {
+  }
 
-/* #capture p {
-  overflow-wrap: break-word;
-} */
+  /* ヘッダー部分 */
+  header {
+    color: white;
+    background: rgb(28, 110, 224);
+    /* paddingは適当なので後で変更 */
+    padding: 1rem 2rem 1rem 2rem;
+  }
 
-/* buttonのスタイルは適当だから後で変更 */
-button {
-  /* appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: #4676D7;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 16px; */
-}
+  .site-title {
+    font-size: 2rem;
+  }
 
-#created-image {
-  box-shadow: 0.2rem 0.2rem 0.4rem;
-}
+  
+  .forms {
+    text-align: left;
+    /* キャプチャースペースと同じ幅 */
+    width: 80%;
+    margin: 1rem auto 1rem;
+  }
+  
+  .forms input, .forms textarea {
+    /* box-sizing: border-box; */
+    display: block;
+    width: 100%;
+    /* ここから教本 */
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid rgba(60, 59, 59, 0.4);
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    outline: none;
+    resize: none;
+  }
+  
+  .forms input:focus, .forms textarea:focus {
+    /* 教本 */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+  }
+  
+  .forms textarea {
+    height: 15rem;
+  }
+  
+  .forms label {
+    font-size: 1.5rem;
+    /* text-align: right; */
+  }
 
-/* ↓のaタグも適当だからあとで変更 */
-#image-download {
-  text-decoration: none;
-  /* border: rgb(19, 214, 188) solid 1rem; */
-  cursor: pointer;
+
+  /* キャプチャー(プレビュー)部分 */
+
+  .preview-section {
+    overflow-wrap: break-word;
+    padding: 0.3rem;
+    border: black 1px solid;
+    /* 教本 */
+    color: black;
+    text-align: left;
+    font-size: 2rem;
+    /* 入力スペースと同じ幅 */
+    width: 80%;
+    margin: 1rem auto 1rem;
+  }
+
+
+  #created-image {
+    box-shadow: 0.2rem 0.2rem 0.4rem;
+  }
+
+  /* ↓のaタグも適当だからあとで変更 */
+  #image-download {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  /* ボタンのスタイル */
+  #create-preview, #make-image, #image-download {
+    /* 教本 */
+    display: block;
+    width: 200px;
+    margin: 40px auto 0;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* background-color: transparent; */
+    cursor: pointer;
+  }
+
+  #create-preview:hover {
+    /* 教本 */
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
 }
