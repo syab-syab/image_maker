@@ -52,15 +52,17 @@
     <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
     <button class="" id="make-image">画像生成</button>
     <hr>
-    <img src="" alt="" id="created-image">
+    <div id="image-space" class="non-display">
+      <img src="" alt="" id="created-image">
+    </div>
     <hr>
-    <a class="" href="" id="image-download" download="screenshot.jpg">画像ダウンロード</a>
+    <a class="" href="" id="image-download" download="screenshot">画像ダウンロード</a>
   </section>
     
     
 
   <!-- twitterやLINEに共有できるボタンを作成する -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
     var makeImage = document.getElementById("make-image");
 
@@ -83,19 +85,26 @@
     }
 
     createPreview.addEventListener("click", createImage);
+
+
       
     // スクショ生成する関数
     function createScreenshot() {
+      // オプションの指定
+      var options = {
+        // 画質を良くする
+        scale: 3
+      }
       // フォームに入力したら画像を表示
-      html2canvas(document.getElementById("capture"),{
-        onrendered: function(canvas){
-          //imgのsrcに、生成した画像urlを入れて表示。
-          var imgData = canvas.toDataURL();
-          document.getElementById("created-image").src = imgData;
-          // aタグのhrefに生成した画像を入れてダウンロードできるようにする
-          document.getElementById("image-download").href = imgData;
-        }
+      html2canvas(document.getElementById("capture"), options).then(function(canvas) {
+        //imgのsrcに、生成した画像urlを入れて表示。
+        var imgData = canvas.toDataURL();
+        var createImage = document.getElementById("created-image");
+        createImage.src = imgData;
+        // aタグのhrefに生成した画像を入れてダウンロードできるようにする
+        createImage.href = imgData;
       });
+      // 画質の問題はクリアしたから、表示される画像のサイズを調整する
     }
 
     // 生成ボタンをクリックしたらスクショを撮る

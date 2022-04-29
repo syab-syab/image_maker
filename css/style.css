@@ -40,7 +40,6 @@ header {
 
 .site-title {
   /* 教本 */
-  /* margin: 50px 0 40px; */
   margin: 0;
   font-size: 4rem;
 }
@@ -62,8 +61,6 @@ header {
 }
 
 .forms input, .forms textarea {
-  /* box-sizing: border-box; */
-
   display: block;
   width: 100%;
   /* ここから教本 */
@@ -87,7 +84,6 @@ header {
 
 .forms label {
   font-size: 2rem;
-  /* text-align: right; */
 }
 
 
@@ -106,10 +102,7 @@ header {
   font-size: 2rem;
   /* 入力スペースと同じ幅 */
   width: var(--element-width);
-  /* width: 50%; */
-  /* width: 700px; */
   margin: var(--element-margin);
-  /* margin: 50px auto 0; */
 }
 
 
@@ -120,7 +113,6 @@ header {
 /* ↓のaタグも適当だからあとで変更 */
 #image-download {
   text-decoration: none;
-  /* border: rgb(19, 214, 188) solid 1rem; */
   cursor: pointer;
 }
 
@@ -133,7 +125,6 @@ header {
   padding: 15px;
   border: 1px solid black;
   border-radius: 5px;
-  /* background-color: transparent; */
   cursor: pointer;
 }
 
@@ -172,7 +163,6 @@ header {
   }
   
   .forms input, .forms textarea {
-    /* box-sizing: border-box; */
     display: block;
     width: 100%;
     /* ここから教本 */
@@ -196,7 +186,6 @@ header {
   
   .forms label {
     font-size: 1.5rem;
-    /* text-align: right; */
   }
 
 
@@ -236,7 +225,6 @@ header {
     padding: 15px;
     border: 1px solid black;
     border-radius: 5px;
-    /* background-color: transparent; */
     cursor: pointer;
   }
 
