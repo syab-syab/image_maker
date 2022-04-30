@@ -93,10 +93,10 @@ header {
   /* 背景色を指定しないと透過する */
   background: white;
   overflow-wrap: break-word;
-  padding: 0.3rem;
+  /* padding: 0.3rem; */
   border: black 1px solid;
   /* 教本 */
-  padding: 80px 30px;
+  /* padding: 80px 30px; */
   color: black;
   text-align: left;
   font-size: 2rem;
@@ -105,6 +105,17 @@ header {
   margin: var(--element-margin);
 }
 
+/* tableテスト */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 1rem;
+  width: auto;
+}
 
 #created-image {
   box-shadow: 0.2rem 0.2rem 0.4rem;

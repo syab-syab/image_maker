@@ -39,10 +39,43 @@
   <!-- プレビュー表示部分 -->
   <!-- <div class="preview-section"> -->
   <section id="capture" class="preview-section non-display">
-    <p class="" id="origin-title"></p>
+    <!-- <p class="" id="origin-title"></p>
     <p class="">場所(または集合場所): <span id="origin-place"></span></p>
     <p class="">日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
-    <p class="">備考: <span id="origin-content"></span></p>
+    <p class="">備考: <span id="origin-content"></span></p> -->
+    <!-- tableテスト -->
+    <table>
+      <tr>
+        <td>イベント名</td>
+        <td>
+          <span id="origin-title"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>場所</td>
+        <td>
+          <span id="origin-place"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>日にち</td>
+        <td>
+          <span id="origin-date"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>時間</td>
+        <td>
+          <span id="origin-time">
+        </td>
+      </tr>
+      <tr>
+        <td>備考</td>
+        <td>
+          <span id="origin-content"></span>
+        </td>
+      </tr>
+    </table>
   </section>
   <!-- </div> -->
 
@@ -101,6 +134,7 @@
         var imgData = canvas.toDataURL();
         var createImage = document.getElementById("created-image");
         createImage.src = imgData;
+        // 表示される画像のサイズの調整
         createImage.width = document.getElementById("capture").clientWidth;
         // aタグのhrefに生成した画像を入れてダウンロードできるようにする
         var imageDownload = document.getElementById("image-download");
