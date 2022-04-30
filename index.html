@@ -102,7 +102,9 @@
         var createImage = document.getElementById("created-image");
         createImage.src = imgData;
         // aタグのhrefに生成した画像を入れてダウンロードできるようにする
-        createImage.href = imgData;
+        var imageDownload = document.getElementById("image-download");
+        // createImage.href = imgData;
+        imageDownload.href = imgData;
       });
       // 画質の問題はクリアしたから、表示される画像のサイズを調整する
     }
