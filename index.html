@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
-  <title>予定＆イベント画像ジェネレーター</title>
+  <title>イベント告知画像メーカー</title>
 </head>
 <body>
   <header>
     <!-- スマホで開いたら文字サイズを小さくしたい -->
-    <h1 class="site-title">予定＆イベント画像ジェネレーター</h1>
+    <h1 class="site-title">イベント告知画像メーカー</h1>
   </header>
 
   <!-- 入力部分 -->
@@ -101,12 +101,13 @@
         var imgData = canvas.toDataURL();
         var createImage = document.getElementById("created-image");
         createImage.src = imgData;
+        createImage.width = document.getElementById("capture").clientWidth;
         // aタグのhrefに生成した画像を入れてダウンロードできるようにする
         var imageDownload = document.getElementById("image-download");
-        // createImage.href = imgData;
         imageDownload.href = imgData;
       });
       // 画質の問題はクリアしたから、表示される画像のサイズを調整する
+
     }
 
     // 生成ボタンをクリックしたらスクショを撮る
