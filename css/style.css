@@ -107,9 +107,18 @@ header {
 }
 
 /* tableテスト */
+/* tableのbackgroundを画像にするとエラーが出る */
 table {
   border-collapse: collapse;
   width: 100%;
+  /* background-image: linear-gradient(
+    -45deg,
+    #C6E6FB 15%, #fff 15%,
+    #fff 25%, #C6E6FB 25%,
+    #C6E6FB 65%, #fff 65%,
+    #fff 75%, #C6E6FB 75%,
+    #C6E6FB
+  ); */
 }
 
 caption {
@@ -118,7 +127,13 @@ caption {
 }
 
 th {
-  background: gold;
+  /* background: rgb(44, 177, 192); */
+  /* テスト */
+  background: linear-gradient(#D00 0%, #810000 50%, #5B0000 51%, #390000 100%);
+  border: solid 1px #390000;
+  box-shadow: 0 1px 2px #606060, 0 0 2px #FFF inset;
+  text-shadow: 3px 0 3px #390000, 0 3px 3px #390000, -3px 0 3px #390000, 0 -3px 3px #390000;
+  color: white;
 }
 
 caption, th, td {

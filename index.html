@@ -8,15 +8,15 @@
   <title>イベント告知画像メーカー</title>
 </head>
 <body>
+  <!-- 全体的にスタイルがショボいので -->
+  <!--もっと頑張る  -->
   <header>
-    <!-- スマホで開いたら文字サイズを小さくしたい -->
     <h1 class="site-title">イベント告知画像メーカー</h1>
   </header>
 
   <!-- 入力部分 -->
   <section class="form-section">
     <form class="forms">
-      <!-- 背景色・文字色・集合場所か開催場所かの選択もいずれ追加すること -->
       <label for="title">イベント名</label>
       <input type="text" id="title" name="event" placeholder="イベント名">
       <!-- 各部にある brタグ は消しても良いかも -->
@@ -32,6 +32,15 @@
       <br>
       <label for="content">備考</label>
       <textarea class="" id="content"></textarea>
+      <br>
+      <!-- 背景色 -->
+      <label for="">背景色</label><input type="color" id="background-color">
+      <br>
+      <!-- 見出しの色 -->
+      <label for="">見出しの色</label><input type="color" name="" id="">
+      <br>
+      <!-- 文字色 -->
+      <label for="font-color">文字色</label><input type="color" id="font-color">
     </form>
     <button id="create-preview" class="">プレビュー生成</button>
   </section>
@@ -39,20 +48,11 @@
   <!-- プレビュー表示部分 -->
   <!-- <div class="preview-section"> -->
   <section id="capture" class="preview-section non-display">
-    <!-- <p class="" id="origin-title"></p>
-    <p class="">場所(または集合場所): <span id="origin-place"></span></p>
-    <p class="">日時: <span id="origin-date"></span> | <span id="origin-time"></span></p>
-    <p class="">備考: <span id="origin-content"></span></p> -->
-    <!-- tableテスト -->
     <table>
+      <!-- タイトルの有無は選択制にするか？ -->
       <caption><span id="origin-title"></span></caption>
-      <!-- <tr>
-        <td>イベント名</td>
-        <td>
-          <span id="origin-title"></span>
-        </td>
-      </tr> -->
       <tr>
+        <!-- 集合場所と開催場所で分けるか？ -->
         <th>場所</th>
         <td>
           <span id="origin-place"></span>
@@ -65,6 +65,8 @@
         </td>
       </tr>
       <tr>
+        <!-- 集合時間・開催時間を分けるか？ -->
+        <!-- 解散時間も入れるか？ -->
         <th>時間</th>
         <td>
           <span id="origin-time"></span>
@@ -73,6 +75,7 @@
       <tr>
         <th>備考</th>
         <td>
+          <!-- textareaで改行が入力された場合に反映させたい -->
           <span id="origin-content"></span>
         </td>
       </tr>
