@@ -27,6 +27,7 @@ body {
 
 /* 画像ダウンロードボタンと画像元生成スペースに付ける */
 .non-display {
+  /* display: none; */
 }
 
 /* ヘッダー部分 */
@@ -111,11 +112,27 @@ table {
   width: 100%;
 }
 
-th, td {
-  border: 1px solid black;
-  padding: 1rem;
-  width: auto;
+caption {
+  border-bottom: 1px solid black;
+  font-weight: bold;
 }
+
+th {
+  background: gold;
+}
+
+caption, th, td {
+  /* border: 1px solid black; */
+  padding: 1rem;
+  /* width: auto; */
+  /* スマホでも見やすいようにblockにして縦に並べる */
+  display: block;
+}
+
+/* td:last-child {
+  width: 100%;
+} */
+
 
 #created-image {
   box-shadow: 0.2rem 0.2rem 0.4rem;
