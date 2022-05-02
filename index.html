@@ -34,48 +34,43 @@
       <textarea class="" id="content"></textarea>
       <br>
       <!-- 背景色 -->
-      <label for="">背景色</label><input type="color" id="background-color">
+      <label for="">背景色</label><input type="color" id="background-color" value="#ffffff">
       <br>
       <!-- 見出しの色 -->
-      <label for="">見出しの色</label><input type="color" name="" id="">
+      <label for="">見出しの色</label><input type="color" name="" id="heading-color" value="#2cb1c0">
       <br>
       <!-- 文字色 -->
       <label for="font-color">文字色</label><input type="color" id="font-color">
     </form>
-    <button id="create-preview" class="">プレビュー生成</button>
+    <button id="create-preview" class="">プレビューを見る</button>
   </section>
   
   <!-- プレビュー表示部分 -->
   <!-- <div class="preview-section"> -->
   <section id="capture" class="preview-section non-display">
     <table>
-      <!-- タイトルの有無は選択制にするか？ -->
       <caption><span id="origin-title"></span></caption>
       <tr>
-        <!-- 集合場所と開催場所で分けるか？ -->
-        <th>場所</th>
+        <th class="heading">場所</th>
         <td>
           <span id="origin-place"></span>
         </td>
       </tr>
       <tr>
-        <th>日にち</th>
+        <th class="heading">日にち</th>
         <td>
           <span id="origin-date"></span>
         </td>
       </tr>
       <tr>
-        <!-- 集合時間・開催時間を分けるか？ -->
-        <!-- 解散時間も入れるか？ -->
-        <th>時間</th>
+        <th class="heading">時間</th>
         <td>
           <span id="origin-time"></span>
         </td>
       </tr>
       <tr>
-        <th>備考</th>
+        <th class="heading">備考</th>
         <td>
-          <!-- textareaで改行が入力された場合に反映させたい -->
           <span id="origin-content"></span>
         </td>
       </tr>
@@ -83,75 +78,26 @@
   </section>
   <!-- </div> -->
 
-  <section class="make-image-section">
+  <section id="make-image-section" class="non-display">
     <!-- スクショ end -->
     <hr>
     <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
-    <button class="" id="make-image">画像生成</button>
+    <button id="make-image" class="non-display">画像にする</button>
     <hr>
-    <div id="image-space" class="non-display">
+    <div id="image-space">
       <img src="" alt="" id="created-image">
-    </div>
-    <hr>
-    <a class="" href="" id="image-download" download="screenshot">画像ダウンロード</a>
+    </div>    
+  </section>
+
+  <section id="image-download-section"  class="non-display">
+    <a href="" id="image-download" download="screenshot">画像ダウンロード</a>
   </section>
     
     
 
   <!-- twitterやLINEに共有できるボタンを作成する -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script>
-    var makeImage = document.getElementById("make-image");
-
-    // テスト
-    var createPreview = document.getElementById("create-preview");
-    var title = document.getElementById("title");
-    var place = document.getElementById("place");
-    var date = document.getElementById("date");
-    var time = document.getElementById("time");
-    var content = document.getElementById("content");
-    var capture = document.getElementById("capture");
-
-    function createImage() {
-      capture.classList.remove("non-display");
-      document.getElementById('origin-title').textContent = title.value;
-      document.getElementById('origin-place').textContent = place.value;
-      document.getElementById('origin-date').textContent = date.value;
-      document.getElementById('origin-time').textContent = time.value;
-      document.getElementById('origin-content').textContent = content.value;
-    }
-
-    createPreview.addEventListener("click", createImage);
-
-
-      
-    // スクショ生成する関数
-    function createScreenshot() {
-      // オプションの指定
-      var options = {
-        // 画質を良くする
-        scale: 3
-      }
-      // フォームに入力したら画像を表示
-      html2canvas(document.getElementById("capture"), options).then(function(canvas) {
-        //imgのsrcに、生成した画像urlを入れて表示。
-        var imgData = canvas.toDataURL();
-        var createImage = document.getElementById("created-image");
-        createImage.src = imgData;
-        // 表示される画像のサイズの調整
-        createImage.width = document.getElementById("capture").clientWidth;
-        // aタグのhrefに生成した画像を入れてダウンロードできるようにする
-        var imageDownload = document.getElementById("image-download");
-        imageDownload.href = imgData;
-      });
-      // 画質の問題はクリアしたから、表示される画像のサイズを調整する
-
-    }
-
-    // 生成ボタンをクリックしたらスクショを撮る
-    makeImage.addEventListener('click', createScreenshot);
-    
-  </script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

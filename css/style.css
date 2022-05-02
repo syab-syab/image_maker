@@ -27,7 +27,7 @@ body {
 
 /* 画像ダウンロードボタンと画像元生成スペースに付ける */
 .non-display {
-  /* display: none; */
+  display: none;
 }
 
 /* ヘッダー部分 */
@@ -48,10 +48,6 @@ header {
 
 /* 入力部分 */
 
-.form-section {
-  /* 背景色は後で変えても良い */
-  /* background-color: #87a7e6; */
-}
 
 .forms {
   text-align: left;
@@ -87,6 +83,10 @@ header {
   font-size: 2rem;
 }
 
+input[type="color"] {
+  height: 6rem;
+}
+
 
 /* キャプチャー(プレビュー)部分 */
 
@@ -94,31 +94,18 @@ header {
   /* 背景色を指定しないと透過する */
   background: white;
   overflow-wrap: break-word;
-  /* padding: 0.3rem; */
   border: black 1px solid;
-  /* 教本 */
-  /* padding: 80px 30px; */
   color: black;
   text-align: left;
   font-size: 2rem;
-  /* 入力スペースと同じ幅 */
   width: var(--element-width);
   margin: var(--element-margin);
 }
 
-/* tableテスト */
 /* tableのbackgroundを画像にするとエラーが出る */
 table {
   border-collapse: collapse;
   width: 100%;
-  /* background-image: linear-gradient(
-    -45deg,
-    #C6E6FB 15%, #fff 15%,
-    #fff 25%, #C6E6FB 25%,
-    #C6E6FB 65%, #fff 65%,
-    #fff 75%, #C6E6FB 75%,
-    #C6E6FB
-  ); */
 }
 
 caption {
@@ -126,21 +113,13 @@ caption {
   font-weight: bold;
 }
 
+
 th {
-  /* background: rgb(44, 177, 192); */
-  /* テスト */
-  background: linear-gradient(#D00 0%, #810000 50%, #5B0000 51%, #390000 100%);
-  border: solid 1px #390000;
-  box-shadow: 0 1px 2px #606060, 0 0 2px #FFF inset;
-  text-shadow: 3px 0 3px #390000, 0 3px 3px #390000, -3px 0 3px #390000, 0 -3px 3px #390000;
-  color: white;
+  background: rgb(44, 177, 192);
 }
 
 caption, th, td {
-  /* border: 1px solid black; */
   padding: 1rem;
-  /* width: auto; */
-  /* スマホでも見やすいようにblockにして縦に並べる */
   display: block;
 }
 
