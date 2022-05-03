@@ -11,11 +11,11 @@ html {
 }
 
 body {
-  font-family: 'Courier New', Courier, monospace;
-  /* 教本 */
   text-align: center;
   font-size: 1.4rem;
-  background-color: antiquewhite;
+  background-color: rgb(223, 204, 180);
+  font-family: 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif;;
+
 }
 
 :root {
@@ -30,19 +30,27 @@ body {
   display: none;
 }
 
+section {
+  padding-bottom: 3rem;
+}
+
 /* ヘッダー部分 */
 
 header {
   color: white;
-  background: rgb(28, 110, 224);
-  /* paddingは適当なので後で変更 */
-  padding: 2rem 2rem;
+  background: rgb(50, 34, 14);
+  padding: 17rem 3rem 8rem;
+
+
 }
 
-.site-title {
-  /* 教本 */
+.main-title {
   margin: 0;
   font-size: 4rem;
+}
+
+.sub-title {
+  font-size: 2rem;
 }
 
 
@@ -51,7 +59,6 @@ header {
 
 .forms {
   text-align: left;
-  /* 教本 */
   /* キャプチャースペースと同じ幅 */
   width: var(--element-width);
   margin: var(--element-margin);
@@ -60,8 +67,6 @@ header {
 .forms input, .forms textarea {
   display: block;
   width: 100%;
-  /* ここから教本 */
-  /* margin-bottom: 10px; */
   padding: 15px;
   border: 1px solid rgba(60, 59, 59, 0.4);
   border-radius: 0;
@@ -71,7 +76,6 @@ header {
 }
 
 .forms input:focus, .forms textarea:focus {
-  /* 教本 */
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
 }
 
@@ -91,7 +95,6 @@ input[type="color"] {
 /* キャプチャー(プレビュー)部分 */
 
 .preview-section {
-  /* 背景色を指定しないと透過する */
   background: white;
   overflow-wrap: break-word;
   border: black 1px solid;
@@ -102,7 +105,6 @@ input[type="color"] {
   margin: var(--element-margin);
 }
 
-/* tableのbackgroundを画像にするとエラーが出る */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -123,16 +125,15 @@ caption, th, td {
   display: block;
 }
 
-/* td:last-child {
-  width: 100%;
-} */
 
+#image-space {
+  margin-top: 4rem;
+}
 
 #created-image {
   box-shadow: 0.2rem 0.2rem 0.4rem;
 }
 
-/* ↓のaタグも適当だからあとで変更 */
 #image-download {
   text-decoration: none;
   cursor: pointer;
@@ -140,7 +141,8 @@ caption, th, td {
 
 /* ボタンのスタイル */
 #create-preview, #make-image, #image-download {
-  /* 教本 */
+  color: white;
+  background-color: rgb(50, 34, 14);
   display: block;
   width: 200px;
   margin: 40px auto 0;
@@ -150,8 +152,7 @@ caption, th, td {
   cursor: pointer;
 }
 
-#create-preview:hover {
-  /* 教本 */
+#create-preview:hover, #make-image:hover, #image-download:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -160,20 +161,20 @@ caption, th, td {
 
 @media (max-width: 768px) {
 
-  /* 全体 */
-  body {
-  }
 
   /* ヘッダー部分 */
   header {
     color: white;
-    background: rgb(28, 110, 224);
-    /* paddingは適当なので後で変更 */
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
   }
 
-  .site-title {
+  .main-title {
     font-size: 2rem;
+  }
+
+  .sub-title {
+    font-size: 1rem;
   }
 
   
@@ -187,7 +188,6 @@ caption, th, td {
   .forms input, .forms textarea {
     display: block;
     width: 100%;
-    /* ここから教本 */
     margin-bottom: 10px;
     padding: 15px;
     border: 1px solid rgba(60, 59, 59, 0.4);
@@ -198,7 +198,6 @@ caption, th, td {
   }
   
   .forms input:focus, .forms textarea:focus {
-    /* 教本 */
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
   }
   
@@ -217,7 +216,6 @@ caption, th, td {
     overflow-wrap: break-word;
     padding: 0.3rem;
     border: black 1px solid;
-    /* 教本 */
     color: black;
     text-align: left;
     font-size: 2rem;
@@ -231,7 +229,7 @@ caption, th, td {
     box-shadow: 0.2rem 0.2rem 0.4rem;
   }
 
-  /* ↓のaタグも適当だからあとで変更 */
+
   #image-download {
     text-decoration: none;
     cursor: pointer;
@@ -240,7 +238,6 @@ caption, th, td {
 
   /* ボタンのスタイル */
   #create-preview, #make-image, #image-download {
-    /* 教本 */
     display: block;
     width: 200px;
     margin: 40px auto 0;
@@ -251,7 +248,6 @@ caption, th, td {
   }
 
   #create-preview:hover {
-    /* 教本 */
     background-color: rgba(255, 255, 255, 0.05);
   }
 

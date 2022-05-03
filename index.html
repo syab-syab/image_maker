@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>イベント告知画像メーカー</title>
 </head>
 <body>
-  <!-- 全体的にスタイルがショボいので -->
-  <!--もっと頑張る  -->
+  <!-- Header -->
   <header>
-    <h1 class="site-title">イベント告知画像メーカー</h1>
+    <p class="sub-title">遊びや催し事の予定を画像にしてみんなで共有しやすくしよう！</p>
+    <h1 class="main-title">イベント告知画像メーカー</h1>
   </header>
 
-  <!-- 入力部分 -->
+  <!-- Input forms -->
   <section class="form-section">
     <form class="forms">
       <label for="title">イベント名</label>
       <input type="text" id="title" name="event" placeholder="イベント名">
-      <!-- 各部にある brタグ は消しても良いかも -->
       <br>
-      <label for="place">場所(集合場所)</label>
+      <label for="place">場所</label>
       <input type="text" id="place" placeholder="場所">
       <br>
       <label for="date">日</label>
@@ -33,20 +32,16 @@
       <label for="content">備考</label>
       <textarea class="" id="content"></textarea>
       <br>
-      <!-- 背景色 -->
       <label for="">背景色</label><input type="color" id="background-color" value="#ffffff">
       <br>
-      <!-- 見出しの色 -->
       <label for="">見出しの色</label><input type="color" name="" id="heading-color" value="#2cb1c0">
       <br>
-      <!-- 文字色 -->
       <label for="font-color">文字色</label><input type="color" id="font-color">
     </form>
     <button id="create-preview" class="">プレビューを見る</button>
   </section>
   
-  <!-- プレビュー表示部分 -->
-  <!-- <div class="preview-section"> -->
+  <!-- Preview -->
   <section id="capture" class="preview-section non-display">
     <table>
       <caption><span id="origin-title"></span></caption>
@@ -76,26 +71,26 @@
       </tr>
     </table>
   </section>
-  <!-- </div> -->
 
+  <!-- Image -->
   <section id="make-image-section" class="non-display">
-    <!-- スクショ end -->
-    <hr>
-    <!-- スクショ生成とダウンロードボタンはサンプルが生成されない限り非表示にすること -->
+    
     <button id="make-image" class="non-display">画像にする</button>
-    <hr>
+   
     <div id="image-space">
       <img src="" alt="" id="created-image">
     </div>    
   </section>
 
+  <!-- Image download button -->
   <section id="image-download-section"  class="non-display">
     <a href="" id="image-download" download="screenshot">画像ダウンロード</a>
   </section>
-    
-    
 
-  <!-- twitterやLINEに共有できるボタンを作成する -->
+  <footer>
+    ©syab-syab
+  </footer>
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="js/main.js"></script>
 </body>

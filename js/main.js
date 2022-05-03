@@ -1,7 +1,7 @@
 var makeImage = document.getElementById("make-image");
 
-// テスト
-var createPreview = document.getElementById("create-preview");
+// 各要素
+var createPreviewBtn = document.getElementById("create-preview");
 var title = document.getElementById("title");
 var place = document.getElementById("place");
 var date = document.getElementById("date");
@@ -24,25 +24,34 @@ var makeIimageSection = document.getElementById("make-image-section")
 var imageDownloadSection = document.getElementById('image-download-section')
 
 function createImage() {
-  capture.classList.remove("non-display");
-  capture.style.backgroundColor = backColor.value;
-  for (var i = 0; i < heading.length; i++) {
-    heading[i].style.backgroundColor = headingColor.value;
-  }
-  capture.style.color = fontColor.value;
-
-  document.getElementById('origin-title').textContent = title.value;
-  document.getElementById('origin-place').textContent = place.value;
-  document.getElementById('origin-date').textContent = date.value;
-  document.getElementById('origin-time').textContent = time.value;
-  // var contentText = content.value.split('\n').join('<br>');
-  var contentText = (content.value.includes('\n')) ? content.value.split('\n').join('<br>') : content.value;
-  document.getElementById('origin-content').innerHTML = contentText;
+  if (title.value == '' || place.value == '' || date.value == '' || time.value == '' ) {
+    alert("必須項目を入力してください。");
+  } else {
+    capture.classList.remove("non-display");
+    capture.style.backgroundColor = backColor.value;
+    for (var i = 0; i < heading.length; i++) {
+      heading[i].style.backgroundColor = headingColor.value;
+    }
+    capture.style.color = fontColor.value;
   
-  makeIimageSection.classList.remove("non-display");
+    document.getElementById('origin-title').textContent = title.value;
+    document.getElementById('origin-place').textContent = place.value;
+    document.getElementById('origin-date').textContent = date.value;
+    document.getElementById('origin-time').textContent = time.value;
+    // var contentText = (content.value.includes('\n')) ? content.value.split('\n').join('<br>') : content.value;
+    if (content.value == '') {
+      document.getElementById('origin-content').textContent = "特に無し"
+    } else {
+      var contentText = (content.value.includes('\n')) ? content.value.split('\n').join('<br>') : content.value;
+      document.getElementById('origin-content').innerHTML = contentText;
+    }
+    // document.getElementById('origin-content').innerHTML = contentText;
+    
+    makeIimageSection.classList.remove("non-display");
+  }
 }
 
-createPreview.addEventListener("click", createImage);
+createPreviewBtn.addEventListener("click", createImage);
 
 
   
