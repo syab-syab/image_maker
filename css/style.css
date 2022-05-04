@@ -155,13 +155,28 @@ caption, th, td {
   cursor: pointer;
 }
 
-#create-preview:hover, #make-image:hover, #image-download:hover {
+/* ホバー */
+#create-preview:hover, #make-image:hover, #image-download:hover, .sns-share-btn > a:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-
 .sns-share-btn {
-  /* font-size: 3rem; */
+  margin-bottom: 1rem;
+}
+
+.sns-share-btn > a {
+  
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 10%;
+  background-color: rgb(50, 34, 14);
+  width: auto;
+  color: white;
+  text-decoration: none;
+}
+
+.sns-share-btn > a > span {
+  margin-left: 1rem;
 }
 
 
