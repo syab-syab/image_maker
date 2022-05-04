@@ -17,31 +17,35 @@
   <!-- Input forms -->
   <section class="form-section">
     <form class="forms">
-      <label for="title">イベント名</label>
+      <!-- <p><span class="require">*</span>は必須項目です。</p> -->
+      <!-- Event name -->
+      <label for="title">イベント名<span class="require">*</span></label>
       <input type="text" id="title" name="event" placeholder="イベント名">
-      <br>
-      <label for="place">場所</label>
+      <!-- Place name -->
+      <label for="place">場所<span class="require">*</span></label>
       <input type="text" id="place" placeholder="場所">
-      <br>
-      <label for="date">日</label>
+      <!-- Date -->
+      <label for="date">日<span class="require">*</span></label>
       <input type="date" id="date">
-      <br>
-      <label for="time">時間</label>
+      <!-- Time -->
+      <label for="time">時間<span class="require">*</span></label>
       <input type="time" id="time">
-      <br>
+      <!-- Content -->
       <label for="content">備考</label>
       <textarea class="" id="content"></textarea>
-      <br>
+      <!-- Background color -->
       <label for="">背景色</label><input type="color" id="background-color" value="#ffffff">
-      <br>
+      <!-- Heading color -->
       <label for="">見出しの色</label><input type="color" name="" id="heading-color" value="#2cb1c0">
-      <br>
+      <!-- Font color -->
       <label for="font-color">文字色</label><input type="color" id="font-color">
     </form>
+    <p><span class="require">*</span>は必須項目です。</p>
+    <!-- Create preview button -->
     <button id="create-preview" class="">プレビューを見る</button>
   </section>
   
-  <!-- Preview -->
+  <!-- Preview section-->
   <section id="capture" class="preview-section non-display">
     <table>
       <caption><span id="origin-title"></span></caption>
@@ -72,23 +76,25 @@
     </table>
   </section>
 
-  <!-- Image -->
-  <section id="make-image-section" class="non-display">
-    
+  <!-- Create image section -->
+  <section id="create-image-button-section">
     <button id="make-image" class="non-display">画像にする</button>
-   
+  </section>
+
+  <!-- Image section -->
+  <section id="make-image-section" class="non-display">
     <div id="image-space">
-      <img src="" alt="" id="created-image">
+      <img src="" id="created-image">
     </div>    
   </section>
 
-  <!-- Image download button -->
-  <section id="image-download-section"  class="non-display">
+  <!-- Image download button section -->
+  <section id="image-download-button-section"  class="non-display">
     <a href="" id="image-download" download="screenshot">画像ダウンロード</a>
   </section>
 
   <footer>
-    ©syab-syab
+    ©イベント告知画像メーカー
   </footer>
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

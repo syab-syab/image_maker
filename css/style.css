@@ -53,7 +53,9 @@ header {
   font-size: 2rem;
 }
 
-
+.require {
+  color: red;
+}
 /* 入力部分 */
 
 
@@ -73,6 +75,7 @@ header {
   background-color: rgba(255, 255, 255, 0.05);
   outline: none;
   resize: none;
+  margin: 1rem 0 2rem;
 }
 
 .forms input:focus, .forms textarea:focus {

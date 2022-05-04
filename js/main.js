@@ -21,7 +21,7 @@ var fontColor = document.getElementById("font-color");
 var makeIimageSection = document.getElementById("make-image-section")
 
 // 画像のダウンロードボタンのセクション
-var imageDownloadSection = document.getElementById('image-download-section')
+var imageDownloadSection = document.getElementById('image-download-button-section')
 
 function createImage() {
   if (title.value == '' || place.value == '' || date.value == '' || time.value == '' ) {
