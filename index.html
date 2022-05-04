@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head prefix=”og: http://ogp.me/ns#”>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Web site desctiption -->
+  <meta name="description" content="イベントや遊び・仕事etc...どんな予定のスケジュールも画像にしてみんなで共有しやすくできるサイトです。">
+  <meta name="keywords" content="イベント予定告知画像メーカー,遊び,仕事,行楽,待ち合わせ,集合時間,開催時間,周知,イベント,祭り,ライブ,コンサート,デモ,上映会,開催場所,集合場所,画像で共有,SNSで共有">
+  <meta name="format-detection" content="telephone=no,address=no,date=no,email=no">
+  <!-- OGP -->
+  <meta property="og:url" content="https://syab-syab.github.io/image_maker/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="イベント予定告知画像メーカー">
+  <meta property="og:description" content="イベントの予定を画像にして告知できます。">
+  <!-- <meta property="og:image" content="" /> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- <meta name="twitter:site" content=""> -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <title>イベント告知画像メーカー</title>
+  <title>イベント予定告知画像メーカー</title>
 </head>
 <body>
   <!-- Header -->
   <header>
     <p class="sub-title">遊びや催し事の予定を画像にしてみんなで共有しやすくしよう！</p>
-    <h1 class="main-title">イベント告知画像メーカー</h1>
+    <h1 class="main-title">イベント予定告知画像メーカー</h1>
   </header>
 
   <!-- Input forms -->
   <section class="form-section">
     <form class="forms">
-      <!-- <p><span class="require">*</span>は必須項目です。</p> -->
       <!-- Event name -->
       <label for="title">イベント名<span class="require">*</span></label>
       <input type="text" id="title" name="event" placeholder="イベント名">
@@ -77,8 +88,8 @@
   </section>
 
   <!-- Create image section -->
-  <section id="create-image-button-section">
-    <button id="make-image" class="non-display">画像にする</button>
+  <section id="create-image-button-section" class="non-display">
+    <button id="make-image">画像にする</button>
   </section>
 
   <!-- Image section -->
@@ -94,7 +105,9 @@
   </section>
 
   <footer>
-    ©イベント告知画像メーカー
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>
+    ©イベント予定告知画像メーカー
   </footer>
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

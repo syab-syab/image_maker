@@ -1,27 +1,31 @@
 var makeImage = document.getElementById("make-image");
 
-// 各要素
+// 各input要素
 var createPreviewBtn = document.getElementById("create-preview");
 var title = document.getElementById("title");
 var place = document.getElementById("place");
 var date = document.getElementById("date");
 var time = document.getElementById("time");
 var content = document.getElementById("content");
-var capture = document.getElementById("capture");
-var heading = document.getElementsByClassName("heading");
 
-// 背景色関係
-// 背景色は document.getElementById("background-color").value で取得できる
-// 他の色にもidを指定して同じように色の値を取得する
+// 色
 var backColor = document.getElementById("background-color");
 var headingColor = document.getElementById("heading-color");
 var fontColor = document.getElementById("font-color");
 
+// 他の要素
+var capture = document.getElementById("capture");
+var heading = document.getElementsByClassName("heading");
+
+
+// 画像にするボタンのセクション
+var createImageBtn = document.getElementById('create-image-button-section');
+
 // 画像セクション
-var makeIimageSection = document.getElementById("make-image-section")
+var makeIimageSection = document.getElementById("make-image-section");
 
 // 画像のダウンロードボタンのセクション
-var imageDownloadSection = document.getElementById('image-download-button-section')
+var imageDownloadSection = document.getElementById('image-download-button-section');
 
 function createImage() {
   if (title.value == '' || place.value == '' || date.value == '' || time.value == '' ) {
@@ -38,15 +42,14 @@ function createImage() {
     document.getElementById('origin-place').textContent = place.value;
     document.getElementById('origin-date').textContent = date.value;
     document.getElementById('origin-time').textContent = time.value;
-    // var contentText = (content.value.includes('\n')) ? content.value.split('\n').join('<br>') : content.value;
     if (content.value == '') {
       document.getElementById('origin-content').textContent = "特に無し"
     } else {
       var contentText = (content.value.includes('\n')) ? content.value.split('\n').join('<br>') : content.value;
       document.getElementById('origin-content').innerHTML = contentText;
     }
-    // document.getElementById('origin-content').innerHTML = contentText;
     
+    createImageBtn.classList.remove("non-display");
     makeIimageSection.classList.remove("non-display");
   }
 }
@@ -55,7 +58,7 @@ createPreviewBtn.addEventListener("click", createImage);
 
 
   
-// スクショ生成する関数
+// 画像生成する関数
 function createScreenshot() {
   // オプションの指定
   var options = {
@@ -74,10 +77,8 @@ function createScreenshot() {
     var imageDownload = document.getElementById("image-download");
     imageDownload.href = imgData;
   });
-  // 画質の問題はクリアしたから、表示される画像のサイズを調整する
   
   imageDownloadSection.classList.remove("non-display");
 }
 
-// 生成ボタンをクリックしたらスクショを撮る
 makeImage.addEventListener('click', createScreenshot);
