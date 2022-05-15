@@ -67,6 +67,8 @@ header {
 }
 
 .forms input, .forms textarea {
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
   width: 100%;
   padding: 15px;
